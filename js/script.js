@@ -1,4 +1,18 @@
-var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput;
+var argButtonName, buttonTest, buttonRock, buttonPaper, buttonScissors;
+
+buttonTest = document.getElementById('button-test');
+buttonRock = document.getElementById('button-rock');
+buttonPaper = document.getElementById('button-paper');
+buttonScissors = document.getElementById('button-scissors');
+
+/**
+ * Describe this function...
+ */
+function buttonClicked(argButtonName) {
+  clearMessages();
+  console.log(argButtonName + ' został kliknięty');
+
+  var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput;
 
 /**
  * Fuctions for getting player move
@@ -6,7 +20,7 @@ var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomN
 function getMoveName(argMoveId) {
   console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
   if (argMoveId == 1) {
-    return 'kamień';
+    return 'kamien';
   } else if (argMoveId == 2) {
     return 'papier'
   } else if (argMoveId == 3 ){
@@ -35,12 +49,15 @@ function displayResult(argPlayerMove, argComputerMove) {
   }
   printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 }
-playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-console.log('wybór ruchu gracza to: ' + playerInput);
-playerMove = getMoveName(playerInput);
-console.log('ruch gracza to: ' + playerMove);
+playerMove = argButtonName;
 randomNumber = Math.floor(Math.random() * 3 + 1);
 console.log('wylosowana liczba to: ' + randomNumber);
 computerMove = getMoveName(randomNumber);
 console.log('ruch komputera to: ' + computerMove);
 displayResult(playerMove, computerMove);
+}
+
+buttonTest.addEventListener('click', function(){ buttonClicked('Guzik TEST'); });
+buttonRock.addEventListener('click', function(){ buttonClicked('kamien'); });
+buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
+buttonScissors.addEventListener('click', function(){ buttonClicked('nozyce'); });
