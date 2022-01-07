@@ -1,9 +1,7 @@
-var argButtonName, buttonTest, buttonRock, buttonPaper, buttonScissors;
-
-buttonTest = document.getElementById('button-test');
-buttonRock = document.getElementById('button-rock');
-buttonPaper = document.getElementById('button-paper');
-buttonScissors = document.getElementById('button-scissors');
+const buttonTest = document.getElementById('button-test');
+const buttonRock = document.getElementById('button-rock');
+const buttonPaper = document.getElementById('button-paper');
+const buttonScissors = document.getElementById('button-scissors');
 
 /**
  * Describe this function...
@@ -12,7 +10,6 @@ function buttonClicked(argButtonName) {
   clearMessages();
   console.log(argButtonName + ' został kliknięty');
 
-  var argMoveId, argPlayerMove, argComputerMove, computerMove, playerMove, randomNumber, playerInput;
 
 /**
  * Fuctions for getting player move
@@ -24,7 +21,7 @@ function getMoveName(argMoveId) {
   } else if (argMoveId == 2) {
     return 'papier'
   } else if (argMoveId == 3 ){
-      return 'nozyce'
+    return 'nozyce'
   } else {
     printMessage('Nie znam ruchu o id ' + argMoveId + '. Zakładam, że chodziło o "kamień".');
     return 'kamień';
@@ -49,10 +46,10 @@ function displayResult(argPlayerMove, argComputerMove) {
   }
   printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 }
-playerMove = argButtonName;
-randomNumber = Math.floor(Math.random() * 3 + 1);
+const playerMove = argButtonName;
+const randomNumber = Math.floor(Math.random() * 3 + 1);
 console.log('wylosowana liczba to: ' + randomNumber);
-computerMove = getMoveName(randomNumber);
+const computerMove = getMoveName(randomNumber);
 console.log('ruch komputera to: ' + computerMove);
 displayResult(playerMove, computerMove);
 }
